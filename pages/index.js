@@ -1,13 +1,22 @@
-import { useEffect } from 'react'
-import Test from '../components/test/index'
+import { useEffect, useState } from 'react'
+import MessageBox from '../components/MessageBox'
 
 export default function Home() {
-  useEffect(() => {
-    console.log('asasdasdd');
-  })
+  const [statusShow, setStatusShow] = useState(true)
+  const [textMessage, setTextMessage] = useState('hello world')
+
+  const hideMessage = () => setStatusShow(false)
+
+  setTimeout(() => {
+    statusShow ? hideMessage() : null
+  }, 1000 * 10);
+  setTimeout(() => {
+    setTextMessage('asdasd')
+  }, 1000 * 5);
+
   return (
     <div>
-      <Test/>
+      <MessageBox show={statusShow} close={hideMessage} text={textMessage}/>
     </div>
   )
 }

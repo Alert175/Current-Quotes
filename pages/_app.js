@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import '../styles/globals.scss'
+import '../styles/template.scss'
+import '../styles/reset.scss'
 
 export default function MyApp({ Component, pageProps }) {
   return (
