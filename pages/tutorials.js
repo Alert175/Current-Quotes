@@ -1,6 +1,5 @@
 import {Carousel} from 'react-bootstrap'
 import Link from 'next/link'
-import Image from 'next/image'
 
 const Tutorials = () => {
 

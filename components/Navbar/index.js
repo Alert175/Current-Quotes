@@ -1,6 +1,7 @@
 import { observer } from "mobx-react-lite";
 import theme from '../../store/theme';
 import {Navbar, Nav, Form, FormControl, Button, NavDropdown} from 'react-bootstrap'
+import ThemeIcon from '../themeIcon'
 
  const NavBar = observer(() => {
   return(
@@ -13,6 +14,9 @@ import {Navbar, Nav, Form, FormControl, Button, NavDropdown} from 'react-bootstr
           <Nav.Link href="#link">Актуальные крусы</Nav.Link>
           <Nav.Link href="#asd">Перевод валют</Nav.Link>
           <Nav.Link href="/tutorials">Обучение</Nav.Link>
+          <Nav.Item>
+            <ThemeIcon/>
+          </Nav.Item>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
