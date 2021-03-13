@@ -1,24 +1,14 @@
-import { useEffect, useState } from "react";
-import style from './style.module.scss'
+import { useContext, useEffect, useRef, useState } from "react";
 
 export default function MessageBox(props){
-  const [shift, setShift] = useState(-150)
-  useEffect(() => {
-    // set
-    props.show ? setShift(0) : setShift(-150)
-    console.log('use effect hook')
-    // clear
-    return () => setShift(-150)
-  })
+  // state
+  const [visibleAlert, setVisibleAlert] = useState('show')
+  // setTimeout(() => {
+  //   setVisibleAlert('fade')
+  // }, 1000 * 5);
   return(
-    <div
-      className={style.containerBox}
-      style={{
-        transform: `translateY(${shift}%)`
-      }}
-      onClick={()=> {props.close()}}
-    >
-      {props.text}
+    <div className={`alert alert-primary fixed-top show`} role="alert">
+      hello
     </div>
   )
 }
