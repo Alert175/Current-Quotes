@@ -1,14 +1,18 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { observer } from "mobx-react-lite";
+import alertBox from "../../store/alertBox";
 
-export default function MessageBox(props){
-  // state
-  const [visibleAlert, setVisibleAlert] = useState('show')
-  // setTimeout(() => {
-  //   setVisibleAlert('fade')
-  // }, 1000 * 5);
+ const MessageBox = observer(() =>{
+
+  setTimeout(() => {
+    alertBox.hideAlert()
+  }, 1000 * 5);
+
   return(
-    <div className={`alert alert-primary fixed-top show`} role="alert">
-      hello
+    <div className={`alert alert-primary fixed-top ${alertBox.activeClass}`} role="alert">
+      {alertBox.message}
     </div>
   )
-}
+  
+})
+
+export default MessageBox;

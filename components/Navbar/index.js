@@ -1,6 +1,9 @@
-export default function Navbar(props) {
+import { observer } from "mobx-react-lite";
+import theme from '../../store/theme';
+
+ const Navbar = observer(() => {
   return(
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className={`navbar navbar-expand-lg navbar-${theme.active} bg-${theme.active}`}>
     <div className="container-fluid">
       <a className="navbar-brand" href="#">Курсы валют</a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,4 +19,6 @@ export default function Navbar(props) {
     </div>
   </nav>
   )
-}
+})
+
+export default Navbar;
