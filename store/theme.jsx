@@ -6,7 +6,7 @@ class Theme {
     makeAutoObservable(this)
   }
 
-  active = 'light'
+  active = 'dark'
 
   setThemeLight(){
     this.active = 'light'

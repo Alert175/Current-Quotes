@@ -1,3 +1,5 @@
+import {Alert} from 'react-bootstrap'
+
 import { observer } from "mobx-react-lite";
 import alertBox from "../../store/alertBox";
 
@@ -8,9 +10,11 @@ import alertBox from "../../store/alertBox";
   }, 1000 * 5);
 
   return(
-    <div className={`alert alert-primary fixed-top ${alertBox.activeClass}`} role="alert">
-      {alertBox.message}
-    </div>
+    <>
+      <Alert show={alertBox.visible} variant="primary" transition={true} fixed="top">
+        {alertBox.message}
+      </Alert>
+    </>
   )
   
 })

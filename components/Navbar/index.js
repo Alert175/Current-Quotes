@@ -1,24 +1,22 @@
 import { observer } from "mobx-react-lite";
 import theme from '../../store/theme';
+import {Navbar, Nav, Form, FormControl, Button, NavDropdown} from 'react-bootstrap'
 
- const Navbar = observer(() => {
+ const NavBar = observer(() => {
   return(
-    <nav className={`navbar navbar-expand-lg navbar-${theme.active} bg-${theme.active}`}>
-    <div className="container-fluid">
-      <a className="navbar-brand" href="#">Курсы валют</a>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div className="navbar-nav">
-          <a className="nav-link active" aria-current="page" href="#">Главная</a>
-          <a className="nav-link" href="#">Актуальные крусы</a>
-          <a className="nav-link" href="#">Перевод валют</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+    <Navbar bg={theme.active} variant={theme.active} expand="lg">
+      <Navbar.Brand href="#home">Курсы валют</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="#home">Главная</Nav.Link>
+          <Nav.Link href="#link">Актуальные крусы</Nav.Link>
+          <Nav.Link href="#asd">Перевод валют</Nav.Link>
+          <Nav.Link href="/tutorials">Обучение</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   )
 })
 
-export default Navbar;
+export default NavBar;

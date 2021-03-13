@@ -6,19 +6,19 @@ class AlertBox {
     makeAutoObservable(this)
   }
 
-  message = ''
-  activeClass = 'fade'
+  message = 'hello'
+  visible = true
 
   setMessage(value){
     this.message = value
   }
 
   showAlert(){
-    this.activeClass = 'show'
+    this.visible = true
   }
 
   hideAlert(){
-    this.activeClass = 'fade'
+    this.visible = false
   }
 }
 
