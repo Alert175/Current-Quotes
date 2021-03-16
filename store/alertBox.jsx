@@ -7,7 +7,7 @@ class AlertBox {
   }
 
   message = 'hello'
-  visible = true
+  visible = false
 
   setMessage(value){
     this.message = value
