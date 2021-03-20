@@ -1,7 +1,5 @@
-import {Alert} from 'react-bootstrap'
 
 import { observer } from "mobx-react-lite";
-import alertBox from "../../store/alertBox";
 
  const MessageBox = observer(() =>{
 
@@ -11,9 +9,7 @@ import alertBox from "../../store/alertBox";
 
   return(
     <>
-      <Alert show={alertBox.visible} variant="primary" transition={true} fixed="top">
-        {alertBox.message}
-      </Alert>
+      <>alertBox</>
     </>
   )
   

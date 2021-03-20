@@ -1,0 +1,22 @@
+@import "../../../styles/variables.scss";
+
+.container {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  @media screen and (max-width: $tablet) {
+    height: 36px;
+    width: 36px;
+  }
+  .themeIcon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}

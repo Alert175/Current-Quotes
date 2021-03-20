@@ -3,7 +3,7 @@ import theme from '../../../store/theme';
 import { useState } from 'react';
 import axios from 'axios';
 
-import {Container, Row, Col} from 'react-bootstrap';
+import classes from './style.module.scss';
 
 const LatestRates = observer(() => {
 
@@ -31,40 +31,36 @@ const LatestRates = observer(() => {
   getData()
 
   return(
-    <Container>
-      <Row>
-        <Col>
-          <h3>Актуальные курсы валют по данным Центробанк РФ</h3>
-        </Col>
-      </Row>
-      <hr/>
-      <Row>
-        <Col>
-          {
-            currentDate === null ?
-              <h5>получаем данные...</h5>:
-              <h5>Актуальные данные за {currentDate}</h5>
-          }
-        </Col>
-      </Row>
-      <hr/>
-      <Row>
-        <Col>
-          {
-            dataQuotes === null ?
-              <h5>получаем данные доллар...</h5>:
-              <h5>Курс {dataQuotes[10].name} {dataQuotes[10].value}</h5>
-          }
-        </Col>
-        <Col>
-          {
-            dataQuotes === null ?
-              <h5>получаем данные евро...</h5>:
-              <h5>Курс {dataQuotes[11].name} {dataQuotes[11].value}</h5>
-          }
-        </Col>
-      </Row>
-    </Container>
+    <div
+      className={`${classes.container} wrapper content row`}
+      style={{
+        backgroundColor: theme.active === 'dark' ? '#2a2a2a' : '#ffffff',
+        color: theme.active === 'dark' ? '#ffffff' : 'rgba(0, 0, 0, 0.8)'
+      }}
+    >
+      {
+        dataQuotes !== null 
+        ? dataQuotes.map(
+          ({id, name, charCode, value}) =>
+            <div
+              key={id}
+              style={{
+                color: theme.active === 'dark' ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)'
+              }}
+              className={`${classes.element} column`}
+            >
+              <div className={`${classes.item} ${classes.name}`}>{name}</div>
+              <div className={`${classes.item} ${classes.code}`}>{charCode}</div>
+              <div className={`${classes.item} ${classes.value}`}>{Number(value).toFixed(2)}</div>
+            </div>
+        )
+        : <span
+            style={{
+              color: theme.active === 'dark' ? '#ffffff' : 'rgba(0, 0, 0, 0.8)'
+            }}
+          >load</span>
+      }
+    </div>
   )
 });
 

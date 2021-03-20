@@ -1,0 +1,34 @@
+@import "../../../styles/variables.scss";
+
+.container {
+  padding-top: 120px;
+  padding-bottom: 100px;
+  gap: 10px;
+  .element {
+    padding: 10px;
+    padding-bottom: 20px;
+    min-height: 50px;
+    gap: 5px;
+    place-items: center;
+    justify-content: stretch;
+    width: 100%;
+    grid-template-columns: 3fr 1fr 1fr;
+    border-bottom: 1px solid $black;
+    &:nth-last-child(1) {
+      border-bottom: none;
+    }
+    .item {
+      color: inherit;
+      width: fit-content;
+    }
+    .name {
+      justify-self: start;
+    }
+    .code {
+      font-weight: bold;
+    }
+    .value {
+      font-family: "Montserrat-Medium";
+    }
+  }
+}

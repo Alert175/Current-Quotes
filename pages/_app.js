@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/template.scss'
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -27,8 +27,6 @@ export default function MyApp({ Component, pageProps }) {
         />
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
-        {/* <link href="/bootstrap/bootstrap.min.css" rel="stylesheet"></link>
-        <script async src="/bootstrap/bootstrap.bundle.min.js"></script> */}
       </Head>
       <Component {...pageProps} />
     </>

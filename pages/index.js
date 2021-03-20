@@ -1,32 +1,29 @@
+import { observer } from "mobx-react-lite";
+
+import theme from '../store/theme'
+
 import MessageBox from '../components/MessageBox'
 import Navbar from '../components/Navbar'
 import LatestRates from '../components/MainPage/latestRates'
+import LowerMenu from '../components/Navbar/LowerMenu'
 
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-
-export default function Home() {
-  // const [dataQuotes, setDataQuotes] = useState(null)
-
-  // const getData = async () => {
-  //   if(dataQuotes === null){
-  //     const response = await axios.get('/api/curentQuotes')
-  //     if (response.data) {
-  //       setDataQuotes(response.data)
-  //     }
-  //   }
-  // }
-
-  // getData()
+const Home = observer(() => {
 
   return (
-    <>
-      <MessageBox/>
+    <div className="index-wrapper"
+      style={{
+        backgroundColor: theme.active === 'dark' ? '#2a2a2a' : '#ffffff',
+        color: theme.active === 'dark' ? '#ffffff' : 'rgba(0, 0, 0, 0.8)',
+        minHeight: '100vh',
+        width: '100%'
+      }}
+    >
+      {/* <MessageBox/> */}
       <Navbar/>
       <LatestRates/>
-      {/* {
-        dataQuotes !== null ? dataQuotes.date : null
-      } */}
-    </>
+      <LowerMenu/>
+    </div>
   )
-}
+})
+
+export default Home;

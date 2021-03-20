@@ -2,7 +2,7 @@
   "name": "Current Quotes App",
   "short_name": "CQ",
   "theme_color": "#ffffff",
-  "background_color": "#004740",
+  "background_color": "#ffffff",
   "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",
