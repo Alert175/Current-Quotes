@@ -1,44 +1,44 @@
-import { observer } from "mobx-react-lite";
+import { observer } from 'mobx-react-lite';
 import theme from '../../../store/theme';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import classes from './style.module.scss';
 
-const LatestRates = observer(() => {
+const LatestRates = observer(({ stars }) => {
+  const [dataQuotes, setDataQuotes] = useState(stars);
+  const [currentDate, setCurrentDate] = useState(null);
 
-  const [dataQuotes, setDataQuotes] = useState(null)
-  const [currentDate, setCurrentDate] = useState(null)
+  // const validDate = (value) => {
+  //   const date = value.split('T')[0].split('-')[2]
+  //   const month = value.split('T')[0].split('-')[1]
+  //   const year = value.split('T')[0].split('-')[0]
+  //   return `${date}.${month}.${year}`
+  // }
 
-  const validDate = (value) => {
-    const date = value.split('T')[0].split('-')[2]
-    const month = value.split('T')[0].split('-')[1]
-    const year = value.split('T')[0].split('-')[0]
-    return `${date}.${month}.${year}`
-  }
+  // const getData = async () => {
+  //   if(dataQuotes === null){
+  //     const response = await axios.get('/api/curentQuotes')
+  //     if (response.data) {
+  //       setDataQuotes(response.data.valutes)
+  //       console.dir(response.data.valutes)
+  //       setCurrentDate(validDate(response.data.date))
+  //     }
+  //   }
+  // }
 
-  const getData = async () => {
-    if(dataQuotes === null){
-      const response = await axios.get('/api/curentQuotes')
-      if (response.data) {
-        setDataQuotes(response.data.valutes)
-        console.dir(response.data.valutes)
-        setCurrentDate(validDate(response.data.date))
-      }
-    }
-  }
+  // getData()
 
-  getData()
-
-  return(
+  return (
     <div
       className={`${classes.container} wrapper content row`}
       style={{
         backgroundColor: theme.active === 'dark' ? '#2a2a2a' : '#ffffff',
-        color: theme.active === 'dark' ? '#ffffff' : 'rgba(0, 0, 0, 0.8)'
+        color: theme.active === 'dark' ? '#ffffff' : 'rgba(0, 0, 0, 0.8)',
       }}
     >
-      {
+      <h1>header {dataQuotes}</h1>
+      {/* {
         dataQuotes !== null 
         ? dataQuotes.map(
           ({id, name, charCode, value}) =>
@@ -59,9 +59,15 @@ const LatestRates = observer(() => {
               color: theme.active === 'dark' ? '#ffffff' : 'rgba(0, 0, 0, 0.8)'
             }}
           >load</span>
-      }
+      } */}
     </div>
-  )
+  );
 });
+
+LatestRates.getInitialProps = async (ctx) => {
+  const res = await fetch('https://api.github.com/repos/vercel/next.js');
+  const json = await res.json();
+  return { stars: json.stargazers_count };
+};
 
 export default LatestRates;

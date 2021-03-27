@@ -1,7 +1,6 @@
-@import "../../../styles/variables.scss";
+@import '../../../styles/variables.scss';
 
 .container {
-  padding-top: 120px;
   padding-bottom: 100px;
   gap: 10px;
   .element {
@@ -28,7 +27,7 @@
       font-weight: bold;
     }
     .value {
-      font-family: "Montserrat-Medium";
+      font-family: 'Montserrat-Medium';
     }
   }
 }

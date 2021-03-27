@@ -9,6 +9,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "antd": "^4.14.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "mobx": "^6.1.8",
